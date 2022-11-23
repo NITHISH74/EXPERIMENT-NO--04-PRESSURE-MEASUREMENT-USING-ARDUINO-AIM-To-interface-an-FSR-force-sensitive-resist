@@ -1,10 +1,10 @@
-# EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resistor
+# EXPERIMENT-NO--03-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resistor
 
 
 ## AIM: 
 To interface an FSR(force sensitive resistor) and scale the output voltage obtained to pressure applied 
  
-### COMPONENTS REQUIRED:
+## COMPONENTS REQUIRED:
 1.	FSR  (force sensitive resistor)
 2.	1 KΩ resistor 
 3.	Arduino Uno 
@@ -12,13 +12,13 @@ To interface an FSR(force sensitive resistor) and scale the output voltage obtai
 5.	Connecting wires 
 
 
-### THEORY: 
+## THEORY: 
 FSRs are basically a resistor that changes its resistive value (in ohms Ω) depending on how much it is pressed. These sensors are fairly low cost, and easy to use. They also vary some from sensor to sensor perhaps 10%. FSR's resistance changes as more pressure is applied. When there is no pressure, the sensor looks like an infinite resistor (open circuit), as the pressure increases, the resistance goes down. This graph indicates approximately the resistance of the sensor at different force measurements.
  
 
 ![image](https://user-images.githubusercontent.com/36288975/163532939-d6888ae1-4068-4d83-86a7-fc4c32d5179e.png)
 
-### FIGURE 01 GRAPH OF FORCE vs RESISTANCE **
+#### FIGURE 01 GRAPH OF FORCE vs RESISTANCE **
 
 
 
@@ -28,7 +28,7 @@ FSRs are basically a resistor that changes its resistive value (in ohms Ω) depe
 
 
 
-### FIGURE 02 FORCE SENSITIVE RESITOR FOIL DISC TYPE  
+#### FIGURE 02 FORCE SENSITIVE RESITOR FOIL DISC TYPE  
 
 FSRs are often a polymer with conductive material silk-screened on. That means they're plastic and the connection tab is crimped on somewhat delicate material. The best way to connect to these is to simply plug them into a breadboard.
 
@@ -45,24 +45,11 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 ****Where R= 1KΩ in this experiment 
 ****That is, the voltage is proportional to the inverse of the FSR resistance.
 
-
-
-
-
-
-
-
-
-
 ![image](https://user-images.githubusercontent.com/36288975/163532979-a2a5cb5c-f495-442c-843e-bebb82737a35.png)
 
+#### FIGURE-03 CIRCUIT DIAGRAM
 
-
-### FIGURE-03 CIRCUIT DIAGRAM
-
-
-
-### PROCEDURE:
+## PROCEDURE:
 1.	Connect the circuit as per the circuit diagram 
 2.	Connect the board to your computer via the USB cable.
 3.	If needed, install the drivers.
@@ -75,58 +62,77 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 10.	Plot the graph for the output voltage vs the resistance 
 
 
-### PROGRAM 
- *your roll no 
- * your name 
- * department and year 
+## PROGRAM 
+```
+#define fsrpin A0
+#define led1 2
+#define led2 3
+#define led3 4
+#define led4 5
+#define led5 6
+#define led6 7
+int fsrreading;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+  pinMode(led4, OUTPUT);
+  pinMode(led5, OUTPUT);
+  pinMode(led6, OUTPUT);
+}
+void loop()
+{ 
+  fsrreading = analogRead(fsrpin);
+  Serial.println(fsrreading);
+  if (fsrreading > 150)
+  {
+    digitalWrite(led1, HIGH);
+  }
+  else digitalWrite(led1, LOW);
+  if(fsrreading >300)
+  {
+    digitalWrite(led2, HIGH);
+  }
+  else digitalWrite(led2, LOW);
+  if (fsrreading >450)
+  {
+    digitalWrite(led3, HIGH);
+  }
+  else digitalWrite(led3, LOW);
+  if(fsrreading >600)
+  {
+    digitalWrite(led4, HIGH);
+  }
+  else digitalWrite(led4, LOW);
+  if(fsrreading >750)
+  {
+    digitalWrite(led5, HIGH);
+  }
+  else digitalWrite(led5, LOW);
+  if(fsrreading >900)
+  {
+    digitalWrite(led6, HIGH);
+  }
+  else digitalWrite(led6, LOW);
+}
+```
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+## Output:
+### Before Simulation:
+![bf](https://user-images.githubusercontent.com/94164665/203463526-5928a911-a125-432a-bf4b-9fb4935066e8.jpg)
 
-![image](https://user-images.githubusercontent.com/36288975/188804653-a3154e8e-2655-46f2-9dcd-f425dd1ba109.png)
+### After Simulation:
+![as01](https://user-images.githubusercontent.com/94164665/203463551-4d54cb03-a3ff-4121-b816-0bd8ff7e8bb9.jpg)
+![image](https://user-images.githubusercontent.com/94164665/203464028-69743a3f-0e88-4291-aa3e-9cf8b37960a4.png)
+### Serial and Graph:
 
 
-### TABLE -02 standard deviation table 
-### Population Standard Deviation
-The population standard deviation, the standard definition of σ, is used when an entire population can be measured, and is the square root of the variance of a given data set. In cases where every member of a population can be sampled, the following equation can be used to find the standard deviation of the entire population:
-
-
-
-Where
-xi is an individual value
-μ is the mean/expected value
-N is the total number of values
-
-For those unfamiliar with summation notation, the equation above may seem daunting, but when addressed through its individual components, this summation is not particularly complicated. The i=1 in the summation indicates the starting index, i.e. for the data set 1, 3, 4, 7, 8, i=1 would be 1, i=2 would be 3, and so on. Hence the summation notation simply means to perform the operation of (xi - μ)2 on each value through N, which in this case is 5 since there are 5 values in this data set.
-
-EX:           μ = (1+3+4+7+8) / 5 = 4.6        
-σ = √[(1 - 4.6)2 + (3 - 4.6)2 + ... + (8 - 4.6)2)]/5
-σ = √(12.96 + 2.56 + 0.36 + 5.76 + 11.56)/5 = 2.577
+![image](https://user-images.githubusercontent.com/94164665/203464166-6568e0a5-3af7-4487-9ba5-4f30a8b58038.png)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-### RESULTS : Arduino uno is interfaced with FSR and output values are indicated on a graph.
+## RESULTS : 
+Arduino uno is interfaced with FSR and output values are indicated on a graph.
