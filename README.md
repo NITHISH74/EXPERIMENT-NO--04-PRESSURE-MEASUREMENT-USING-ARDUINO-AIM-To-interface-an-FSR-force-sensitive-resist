@@ -18,7 +18,7 @@ FSRs are basically a resistor that changes its resistive value (in ohms Ω) depe
 
 ![image](https://user-images.githubusercontent.com/36288975/163532939-d6888ae1-4068-4d83-86a7-fc4c32d5179e.png)
 
-#### FIGURE 01 GRAPH OF FORCE vs RESISTANCE **
+#### FIGURE 01 GRAPH OF FORCE vs RESISTANCE
 
 
 
@@ -40,10 +40,7 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 	
   Table -01 indicates the approximate analog voltage based on the sensor force/resistance w/a 5V supply and 10K pull down resistor.
 
-### Vo = Vcc ( R / (R + FSR) )								Eq-01
-
-****Where R= 1KΩ in this experiment 
-****That is, the voltage is proportional to the inverse of the FSR resistance.
+### Vo = Vcc ( R / (R + FSR) )								
 
 ![image](https://user-images.githubusercontent.com/36288975/163532979-a2a5cb5c-f495-442c-843e-bebb82737a35.png)
 
